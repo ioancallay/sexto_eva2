@@ -10,7 +10,7 @@ class NiniosModel
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT * FROM `Ninios`";
+        $cadena = "SELECT n.idNinio, n.Nombre, n.Apellido, n.Fecha_nacimiento, c.Nombre as NombreCuidador, c.idCuidador FROM ninios n JOIN cuidadores c ON n.idCuidador = c.idCuidador";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
@@ -21,23 +21,24 @@ class NiniosModel
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
         $cadena = "SELECT * FROM `Ninios` WHERE `idNinio` = $idNinio";
+        // $cadena = "SELECT n.idNinio, n.Nombre, n.Apellido, n.Fecha_nacimiento, c.Nombre as Cuidador, c.idCuidador FROM ninios n JOIN cuidadores c ON n.idCuidador = c.idCuidador WHERE idNinio = $idNinio";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
     }
 
-    public function insertar($nombre, $apellido, $fecha_nacimiento, $alergias, $idCuidador)
+    public function insertar($Nombre, $Apellido, $Fecha_nacimiento, $alergias, $idCuidador)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO `Ninios` (`nombre`, `apellido`, `fecha_nacimiento`, `alergias`) VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$alergias')";
+            $cadena = "INSERT INTO `Ninios` (`Nombre`, `Apellido`, `Fecha_nacimiento`, `alergias`, `idCuidador`) VALUES ('$Nombre', '$Apellido', '$Fecha_nacimiento', '$alergias', '$idCuidador')";
             if (mysqli_query($con, $cadena)) {
-                $ninioId = $con->insert_id;
+                $idNinio = $con->insert_id;
 
-                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($ninioId, $idCuidador, CURDATE())";
+                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
                 if (mysqli_query($con, $asignacion)) {
-                    return $ninioId;
+                    return $idNinio;
                 } else {
                     return $con->error;
                 }
@@ -51,13 +52,23 @@ class NiniosModel
         }
     }
 
-    public function actualizar($idNinio, $nombre, $apellido, $fecha_nacimiento, $alergias)
+    public function actualizar($idNinio, $Nombre, $Apellido, $Fecha_nacimiento, $alergias, $idCuidador)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE `Ninios` SET `nombre` = '$nombre', `apellido` = '$apellido', `fecha_nacimiento` = '$fecha_nacimiento', `alergias` = '$alergias' WHERE `idNinio` = $idNinio";
+            $cadena = "UPDATE `Ninios` SET `Nombre` = '$Nombre', `Apellido` = '$Apellido', `Fecha_nacimiento` = '$Fecha_nacimiento', `alergias` = '$alergias', `idCuidador` = '$idCuidador' WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
+                // $cadenaCuidador = "SELECT idCuidador FROM `Ninios` WHERE `idNinio` = $idNinio";
+                // $res = mysqli_query($con, $cadenaCuidador);
+                // $cuidador = mysqli_fetch_array($res);
+                // if ($cuidador['idCuidador'] != $idCuidador) {
+                //     $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
+                //     mysqli_query($con, $asignacion);
+                //     $cuidador['idCuidador'] = $idCuidador;
+                // } else {
+                //     echo "No se ha modificado el cuidador";
+                // }
                 return $idNinio;
             } else {
                 return $con->error;

@@ -36,31 +36,33 @@ switch ($_GET['op']) {
         break;
 
     case 'insertar':
-        if (!isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
+        if (!isset($_POST['Nombre']) || !isset($_POST['Apellido']) || !isset($_POST['Fecha_nacimiento']) || !isset($_POST['Alergias']) || !isset($_POST['idCuidador'])) {
             echo json_encode(["error" => "Missing required parameters."]);
         }
 
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $fecha_nacimiento = $_POST['fecha_nacimiento'];
-        $alergias = $_POST['alergias'];
+        $Nombre = $_POST['Nombre'];
+        $Apellido = $_POST['Apellido'];
+        $Fecha_nacimiento = $_POST['Fecha_nacimiento'];
+        $Alergias = $_POST['Alergias'];
+        $idCuidador = $_POST['idCuidador'];
         $datos = array();
-        $datos = $ninios->insertar($nombre, $apellido, $fecha_nacimiento, $alergias);
+        $datos = $ninios->insertar($Nombre, $Apellido, $Fecha_nacimiento, $Alergias, $idCuidador);
         echo json_encode($datos);
         break;
 
     case 'actualizar':
-        if (!isset($_POST['idNinio']) || !isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
+        if (!isset($_POST['idNinio']) || !isset($_POST['Nombre']) || !isset($_POST['Apellido']) || !isset($_POST['Fecha_nacimiento']) || !isset($_POST['Alergias']) || !isset($_POST['idCuidador'])) {
             echo json_encode(["error" => "Missing required parameters."]);
         }
 
         $idNinio = $_POST['idNinio'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $fecha_nacimiento = $_POST['fecha_nacimiento'];
-        $alergias = $_POST['alergias'];
+        $Nombre = $_POST['Nombre'];
+        $Apellido = $_POST['Apellido'];
+        $Fecha_nacimiento = $_POST['Fecha_nacimiento'];
+        $Alergias = $_POST['Alergias'];
+        $idCuidador = $_POST['idCuidador'];
         $datos = array();
-        $datos = $ninios->actualizar($idNinio, $nombre, $apellido, $fecha_nacimiento, $alergias);
+        $datos = $ninios->actualizar($idNinio, $Nombre, $Apellido, $Fecha_nacimiento, $Alergias, $idCuidador);
         echo json_encode($datos);
         break;
 

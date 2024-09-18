@@ -29,7 +29,7 @@ export class NuevocuidadorComponent implements OnInit {
 
   ngOnInit(): void {
     this.idCuidador = parseInt(this.rutas.snapshot.paramMap.get('idCuidador'));
-    console.log(this.idCuidador);
+
     this.frm_cuidador = new FormGroup({
       Nombre: new FormControl('', Validators.required),
       Especialidad: new FormControl('', Validators.required),
@@ -38,7 +38,6 @@ export class NuevocuidadorComponent implements OnInit {
     });
 
     if (this.idCuidador > 0) {
-      console.log(this.idCuidador);
       this.ServicioCuidadores.uno(this.idCuidador).subscribe((cuidador) => {
         this.titulo = 'Actualizar Cuidador';
         this.btn_save = 'Actualizar cuidador';
@@ -49,17 +48,15 @@ export class NuevocuidadorComponent implements OnInit {
         this.frm_cuidador.controls['Especialidad'].setValue(cuidador.Especialidad);
         this.frm_cuidador.controls['Telefono'].setValue(cuidador.Telefono);
         this.frm_cuidador.controls['Email'].setValue(cuidador.Email);
-        console.log(this.frm_cuidador);
-
-        // this.ServicioCuidadores.uno(this.idCuidador).subscribe((unCuidador) => {
-        //   this.frm_cuidador.controls['Nombre'].setValue(unCuidador.Nombre);
-        //   this.frm_cuidador.controls['Especialidad'].setValue(unCuidador.Especialidad);
-        //   this.frm_cuidador.controls['Telefono'].setValue(unCuidador.Telefono);
-        //   this.frm_cuidador.controls['Email'].setValue(unCuidador.Email);
-        // });
       });
       console.log(this.frm_cuidador);
     }
+  }
+
+  cambiarLetras() {
+    this.frm_cuidador.controls['Nombre'].setValue(this.frm_cuidador.controls['Nombre'].value.toUpperCase());
+    this.frm_cuidador.controls['Especialidad'].setValue(this.frm_cuidador.controls['Especialidad'].value.toUpperCase());
+    this.frm_cuidador.controls['Email'].setValue(this.frm_cuidador.controls['Email'].value.toLowerCase());
   }
 
   grabar() {

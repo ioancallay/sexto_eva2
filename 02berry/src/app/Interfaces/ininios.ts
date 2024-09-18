@@ -1,8 +1,11 @@
 export interface INinios {
   idNinio?: number;
-  nombre: string;
-  apellido: string;
-  fecha_nacimiento: string;
-  alergias?: string;
+  Nombre: string;
+  Apellido: string;
+  Fecha_nacimiento: string;
+  Alergias?: string;
   idCuidador?: number;
+
+  NombreCuidador?: string;
+  ApellidoCuidador?: string;
 }

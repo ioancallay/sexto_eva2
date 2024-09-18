@@ -20,15 +20,15 @@ export class NiniosService {
   uno(idNinio: number): Observable<INinios> {
     const formData = new FormData();
     formData.append('idNinio', idNinio.toString());
-    return this.http.get<INinios>(this.apiURL + 'uno' + formData);
+    return this.http.post<INinios>(this.apiURL + 'uno', formData);
   }
 
   insertar(ninio: INinios): Observable<string> {
     const formData = new FormData();
-    formData.append('nombre', ninio.nombre);
-    formData.append('apellido', ninio.apellido);
-    formData.append('fecha_nacimiento', ninio.fecha_nacimiento.toString());
-    formData.append('alergias', ninio.alergias);
+    formData.append('Nombre', ninio.Nombre);
+    formData.append('Apellido', ninio.Apellido);
+    formData.append('Fecha_nacimiento', ninio.Fecha_nacimiento.toString());
+    formData.append('Alergias', ninio.Alergias);
     formData.append('idCuidador', ninio.idCuidador.toString());
     return this.http.post<string>(this.apiURL + 'insertar', formData);
   }
@@ -36,10 +36,10 @@ export class NiniosService {
   actualizar(ninio: INinios): Observable<string> {
     const formData = new FormData();
     formData.append('idNinio', ninio.idNinio.toString());
-    formData.append('nombre', ninio.nombre);
-    formData.append('apellido', ninio.apellido);
-    formData.append('fecha_nacimiento', ninio.fecha_nacimiento.toString());
-    formData.append('alergias', ninio.alergias);
+    formData.append('Nombre', ninio.Nombre);
+    formData.append('Apellido', ninio.Apellido);
+    formData.append('Fecha_nacimiento', ninio.Fecha_nacimiento.toString());
+    formData.append('Alergias', ninio.Alergias);
     formData.append('idCuidador', ninio.idCuidador.toString());
     return this.http.post<string>(this.apiURL + 'actualizar', formData);
   }

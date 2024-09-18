@@ -9,7 +9,14 @@
       <div class="row">
         <div class="form-group mb-3">
           <label class="form-label" for="Nombre">Nombres y Apellidos</label>
-          <input formControlName="Nombre" type="text" class="form-control" id="Nombre" placeholder="Ingrese los Nombres y apellidos" />
+          <input
+            formControlName="Nombre"
+            type="text"
+            class="form-control"
+            id="Nombre"
+            placeholder="Ingrese los Nombres y apellidos"
+            (blur)="cambiarLetras()"
+          />
           <div *ngIf="frm_cuidador.get('Nombre').invalid && frm_cuidador.get('Nombre').touched">
             <small *ngIf="frm_cuidador.get('Nombre').hasError('required')" style="color: red">Los Nombres son requeridos</small>
           </div>
@@ -17,7 +24,14 @@
 
         <div class="form-group mb-3">
           <label class="form-label" for="Especialidad">Especialidad</label>
-          <input formControlName="Especialidad" type="text" class="form-control" id="Especialidad" placeholder="Ingrese la especialidad" />
+          <input
+            formControlName="Especialidad"
+            type="text"
+            class="form-control"
+            id="Especialidad"
+            placeholder="Ingrese la especialidad"
+            (blur)="cambiarLetras()"
+          />
           <div *ngIf="frm_cuidador.get('Especialidad').invalid && frm_cuidador.get('Especialidad').touched">
             <small *ngIf="frm_cuidador.get('Especialidad').hasError('required')" style="color: red">La especialidad es requerida</small>
           </div>
@@ -33,7 +47,14 @@
 
         <div class="form-group mb-3">
           <label class="form-label" for="Email">Email</label>
-          <input type="text" formControlName="Email" class="form-control" id="Email" placeholder="Ingrese el correo" />
+          <input
+            type="text"
+            formControlName="Email"
+            class="form-control"
+            id="Email"
+            placeholder="Ingrese el correo"
+            (blur)="cambiarLetras()"
+          />
           <div *ngIf="frm_cuidador.get('Email').invalid && frm_cuidador.get('Email').touched">
             <small *ngIf="frm_cuidador.get('Email').hasError('required')" style="color: red">El campo email es requerido</small>
           </div>
