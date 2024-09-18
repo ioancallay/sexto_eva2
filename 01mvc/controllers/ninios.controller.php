@@ -24,6 +24,10 @@ switch ($_GET['op']) {
         break;
 
     case 'uno':
+        if (!isset($_POST['ninio_id'])) {
+            echo json_encode(["error" => "Missing 'ninio_id' parameter."]);
+        }
+
         $ninio_id = $_POST['ninio_id'];
         $datos = array();
         $datos = $ninios->uno($ninio_id);
@@ -32,6 +36,10 @@ switch ($_GET['op']) {
         break;
 
     case 'insertar':
+        if (!isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
+            echo json_encode(["error" => "Missing required parameters."]);
+        }
+
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
@@ -42,6 +50,10 @@ switch ($_GET['op']) {
         break;
 
     case 'actualizar':
+        if (!isset($_POST['ninio_id']) || !isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
+            echo json_encode(["error" => "Missing required parameters."]);
+        }
+
         $ninio_id = $_POST['ninio_id'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -53,6 +65,10 @@ switch ($_GET['op']) {
         break;
 
     case 'eliminar':
+        if (!isset($_POST['ninio_id'])) {
+            echo json_encode(["error" => "Missing 'ninio_id' parameter."]);
+        }
+        
         $ninio_id = $_POST['ninio_id'];
         $datos = array();
         $datos = $ninios->eliminar($ninio_id);
