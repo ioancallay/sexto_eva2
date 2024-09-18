@@ -24,13 +24,13 @@ switch ($_GET['op']) {
         break;
 
     case 'uno':
-        if (!isset($_POST['ninio_id'])) {
-            echo json_encode(["error" => "Missing 'ninio_id' parameter."]);
+        if (!isset($_POST['idNinio'])) {
+            echo json_encode(["error" => "Missing 'idNinio' parameter."]);
         }
 
-        $ninio_id = $_POST['ninio_id'];
+        $idNinio = $_POST['idNinio'];
         $datos = array();
-        $datos = $ninios->uno($ninio_id);
+        $datos = $ninios->uno($idNinio);
         $res = mysqli_fetch_assoc($datos);
         echo json_encode($res);
         break;
@@ -50,28 +50,28 @@ switch ($_GET['op']) {
         break;
 
     case 'actualizar':
-        if (!isset($_POST['ninio_id']) || !isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
+        if (!isset($_POST['idNinio']) || !isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['fecha_nacimiento']) || !isset($_POST['alergias'])) {
             echo json_encode(["error" => "Missing required parameters."]);
         }
 
-        $ninio_id = $_POST['ninio_id'];
+        $idNinio = $_POST['idNinio'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $alergias = $_POST['alergias'];
         $datos = array();
-        $datos = $ninios->actualizar($ninio_id, $nombre, $apellido, $fecha_nacimiento, $alergias);
+        $datos = $ninios->actualizar($idNinio, $nombre, $apellido, $fecha_nacimiento, $alergias);
         echo json_encode($datos);
         break;
 
     case 'eliminar':
-        if (!isset($_POST['ninio_id'])) {
-            echo json_encode(["error" => "Missing 'ninio_id' parameter."]);
+        if (!isset($_POST['idNinio'])) {
+            echo json_encode(["error" => "Missing 'idNinio' parameter."]);
         }
 
-        $ninio_id = $_POST['ninio_id'];
+        $idNinio = $_POST['idNinio'];
         $datos = array();
-        $datos = $ninios->eliminar($ninio_id);
+        $datos = $ninios->eliminar($idNinio);
         echo json_encode($datos);
         break;
 

@@ -43,7 +43,7 @@
                     <td>{{ ninio.apellido }}</td>
                     <td class="text-end">{{ ninio.fecha_nacimiento }}</td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-outline-warning" [routerLink]="['/editarninio/', ninio.ninio_id]">
+                      <button type="button" class="btn btn-outline-warning" [routerLink]="['/editarninio/', ninio.idNinio]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="icon icon-tabler icon-tabler-edit"
@@ -63,7 +63,7 @@
                         </svg>
                       </button>
                       |
-                      <button type="button" class="btn btn-outline-danger" (click)="eliminar(ninio.ninio_id)">
+                      <button type="button" class="btn btn-outline-danger" (click)="eliminar(ninio.idNinio)">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="icon icon-tabler icon-tabler-eraser-off"

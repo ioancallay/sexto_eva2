@@ -34,7 +34,7 @@ export class NiniosService {
 
   actualizar(ninio: INinios): Observable<string> {
     const formData = new FormData();
-    formData.append('idNinio', ninio.ninio_id.toString());
+    formData.append('idNinio', ninio.idNinio.toString());
     formData.append('nombre', ninio.nombre);
     formData.append('apellido', ninio.apellido);
     formData.append('fecha_nacimiento', ninio.fecha_nacimiento.toString());
