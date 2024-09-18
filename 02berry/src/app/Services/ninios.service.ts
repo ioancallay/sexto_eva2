@@ -6,13 +6,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+@Injectable({
+  providedIn: 'root'
+})
 export class NiniosService {
-  // ninio_id INT AUTO_INCREMENT PRIMARY KEY,
-  // nombre VARCHAR(50) NOT NULL,
-  // apellido VARCHAR(50) NOT NULL,
-  // fecha_nacimiento DATE NOT NULL,
-  // alergias TEXT
-
   apiURL = 'http://localhost/sexto_eva2/01mvc/controllers/ninios.controller.php?op=';
   constructor(private http: HttpClient) {}
 
