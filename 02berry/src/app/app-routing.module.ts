@@ -28,6 +28,22 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/sample-page/sample-page.component')
+      },
+      {
+        path: 'ninios',
+        loadComponent: () => import('./Components/ninios/ninios.component').then((c) => c.NiniosComponent)
+      },
+      {
+        path: 'nuevoninio',
+        loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
+      },
+      {
+        path: 'cuidadores',
+        loadComponent: () => import('./Components/cuidadores/cuidadores.component').then((c) => c.CuidadoresComponent)
+      },
+      {
+        path: 'nuevocuidador',
+        loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
       }
     ]
   },

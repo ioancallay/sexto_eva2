@@ -77,7 +77,7 @@ const NavigationItems = [
         title: 'Niños',
         type: 'item',
         classes: 'nav-item',
-        url: '/typography',
+        url: '/ninios',
         icon: 'ti ti-typography'
       },
       {
@@ -85,7 +85,7 @@ const NavigationItems = [
         title: 'Cuidadores',
         type: 'item',
         classes: 'nav-item',
-        url: '/color',
+        url: '/cuidadores',
         icon: 'ti ti-brush'
       }
     ]
