@@ -78,7 +78,7 @@ const NavigationItems = [
         type: 'item',
         classes: 'nav-item',
         url: '/ninios',
-        icon: 'ti ti-typography'
+        icon: 'ti ti-users'
       },
       {
         id: 'cuidadores',
@@ -87,10 +87,17 @@ const NavigationItems = [
         classes: 'nav-item',
         url: '/cuidadores',
         icon: 'ti ti-brush'
+      },
+      {
+        id: 'reportes',
+        title: 'Reportes',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/reportes',
+        icon: 'ti ti-book'
       }
     ]
   }
-
 ];
 
 @Injectable()
