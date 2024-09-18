@@ -68,10 +68,13 @@ switch ($_GET['op']) {
         if (!isset($_POST['ninio_id'])) {
             echo json_encode(["error" => "Missing 'ninio_id' parameter."]);
         }
-        
+
         $ninio_id = $_POST['ninio_id'];
         $datos = array();
         $datos = $ninios->eliminar($ninio_id);
         echo json_encode($datos);
         break;
+
+    default:
+        echo json_encode(["error:" => "Invalid operation."]);
 }
