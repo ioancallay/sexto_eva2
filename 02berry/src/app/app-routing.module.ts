@@ -52,6 +52,10 @@ const routes: Routes = [
       {
         path: 'editarninio/:idNinio',
         loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
+      },
+      {
+        path: 'reportes',
+        loadComponent: () => import('./Components/reportes/reportes.component').then((c) => c.ReportesComponent)
       }
     ]
   },
