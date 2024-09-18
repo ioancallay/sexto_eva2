@@ -5,13 +5,23 @@ class ClaseConexion
     public $conexion;
     protected $db;
 
-    // private $db_host = "www.ioasystem.com";
+    //Desconetar estas líneas si se desea utilizar en una base local
+    //Conexión a la base de datos local
+
     private $db_host = "localhost";
-    // private $db_user = "ioasyste_iaproject";
     private $db_user = "root";
-    // private $db_password = "d,!4{bTrbYzz";
     private $db_password = "";
     private $db_name = "ioasyste_eva2";
+
+
+    //Conexión a la base de datos remota NO USAR BASE VACIA
+    //Descomentar estas líneas si se desea utilizar en una base remota
+    
+    // private $db_host = "www.ioasystem.com";
+    // private $db_user = "ioasyste_iaproject";
+    // private $db_password = "d,!4{bTrbYzz";
+    // private $db_name = "ioasyste_eva2";
+    
 
     public function ProcedimientoConectar()
     {
