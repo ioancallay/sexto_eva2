@@ -44,7 +44,6 @@ class NiniosModel
         }
     }
 
-
     public function actualizar($idNinio, $nombre, $apellido, $fecha_nacimiento, $alergias)
     {
         try {
