@@ -51,7 +51,7 @@ class NiniosModel
             $con = $con->ProcedimientoConectar();
             $cadena = "UPDATE `Ninios` SET `nombre` = '$nombre', `apellido` = '$apellido', `fecha_nacimiento` = '$fecha_nacimiento', `alergias` = '$alergias' WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
-                return true;
+                return $idNinio;
             } else {
                 return $con->error;
             }
@@ -69,7 +69,7 @@ class NiniosModel
             $con = $con->ProcedimientoConectar();
             $cadena = "DELETE FROM `Ninios` WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
-                return true;
+                return $idNinio;
             } else {
                 return $con->error;
             }
