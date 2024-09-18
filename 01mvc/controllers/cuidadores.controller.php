@@ -13,13 +13,6 @@ error_reporting(0);
 
 $cuidadores = new CuidadoresModel();
 
-// cuidador_id INT AUTO_INCREMENT PRIMARY KEY,
-// nombre VARCHAR(50) NOT NULL,
-// especialidad VARCHAR(50) NOT NULL,
-// telefono VARCHAR(20),
-// email VARCHAR(100) UNIQUE
-// idNinio
-
 switch ($_GET['op']) {
     case 'todos':
         $datos = array();
