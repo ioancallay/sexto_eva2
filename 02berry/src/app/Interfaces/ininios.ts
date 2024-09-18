@@ -4,4 +4,5 @@ export interface INinios {
   apellido: string;
   fecha_nacimiento: string;
   alergias?: string;
+  idCuidador?: number;
 }

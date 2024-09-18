@@ -29,6 +29,7 @@ export class NiniosService {
     formData.append('apellido', ninio.apellido);
     formData.append('fecha_nacimiento', ninio.fecha_nacimiento.toString());
     formData.append('alergias', ninio.alergias);
+    formData.append('idCuidador', ninio.idCuidador.toString());
     return this.http.post<string>(this.apiURL + 'insertar', formData);
   }
 
@@ -39,6 +40,7 @@ export class NiniosService {
     formData.append('apellido', ninio.apellido);
     formData.append('fecha_nacimiento', ninio.fecha_nacimiento.toString());
     formData.append('alergias', ninio.alergias);
+    formData.append('idCuidador', ninio.idCuidador.toString());
     return this.http.post<string>(this.apiURL + 'actualizar', formData);
   }
 

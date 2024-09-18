@@ -26,14 +26,21 @@ class NiniosModel
         return $datos;
     }
 
-    public function insertar($nombre, $apellido, $fecha_nacimiento, $alergias)
+    public function insertar($nombre, $apellido, $fecha_nacimiento, $alergias, $idCuidador)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
             $cadena = "INSERT INTO `Ninios` (`nombre`, `apellido`, `fecha_nacimiento`, `alergias`) VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$alergias')";
             if (mysqli_query($con, $cadena)) {
-                return $con->insert_id;
+                $ninioId = $con->insert_id;
+
+                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($ninioId, $idCuidador, CURDATE())";
+                if (mysqli_query($con, $asignacion)) {
+                    return $ninioId;
+                } else {
+                    return $con->error;
+                }
             } else {
                 return $con->error;
             }
