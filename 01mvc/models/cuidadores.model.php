@@ -31,21 +31,14 @@ class CuidadoresModel
         return $datos;
     }
 
-    public function insertar($nombre, $especialidad, $telefono, $email, $idNinio)
+    public function insertar($nombre, $especialidad, $telefono, $email)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
             $cadena = "INSERT INTO cuidadores (nombre, especialidad, telefono, email) VALUES ('$nombre', '$especialidad', '$telefono', '$email')";
             if (mysqli_query($con, $cadena)) {
-                $ninioId = $con->insert_id;
-
-                $asignacion = "INSERT INTO asignaciones (ninio_id, cuidador_id, fecha_asignacion) VALUES ($idNinio, $ninioId, CURDATE())";
-                if (mysqli_query($con, $asignacion)) {
-                    return $ninioId;
-                } else {
-                    return $con->error;
-                }
+                return $con->insert_id;
             } else {
                 return $con->error;
             }
@@ -56,7 +49,7 @@ class CuidadoresModel
         }
     }
 
-    public function actualizar($idCuidador, $nombre, $especialidad, $telefono, $email, $idNinio)
+    public function actualizar($idCuidador, $nombre, $especialidad, $telefono, $email)
     {
         try {
             $con = new ClaseConexion();

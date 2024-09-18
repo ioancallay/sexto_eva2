@@ -1,5 +1,5 @@
 export interface ICuidadores {
-  cuidador_id?: number;
+  idCuidador?: number;
   nombre: string;
   especialidad: string;
   telefono?: string;
