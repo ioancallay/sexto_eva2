@@ -5,7 +5,7 @@ require_once '../config/conexion.php';
 class CuidadoresModel
 {
 
-    // cuidador_id INT AUTO_INCREMENT PRIMARY KEY,
+    // idCuidador INT AUTO_INCREMENT PRIMARY KEY,
     // nombre VARCHAR(50) NOT NULL,
     // especialidad VARCHAR(50) NOT NULL,
     // telefono VARCHAR(20),
@@ -25,7 +25,7 @@ class CuidadoresModel
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT * FROM cuidadores WHERE cuidador_id = $idCuidador";
+        $cadena = "SELECT * FROM cuidadores WHERE idCuidador = $idCuidador";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
@@ -54,7 +54,7 @@ class CuidadoresModel
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE cuidadores SET nombre='$nombre', especialidad='$especialidad', telefono='$telefono', email='$email' WHERE cuidador_id=$idCuidador";
+            $cadena = "UPDATE cuidadores SET nombre='$nombre', especialidad='$especialidad', telefono='$telefono', email='$email' WHERE idCuidador=$idCuidador";
             if (mysqli_query($con, $cadena)) {
                 return $con->insert_id;
             } else {
@@ -72,7 +72,7 @@ class CuidadoresModel
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "DELETE FROM cuidadores WHERE cuidador_id=$idCuidador";
+            $cadena = "DELETE FROM cuidadores WHERE idCuidador=$idCuidador";
             if (mysqli_query($con, $cadena)) {
                 return $idCuidador;
             } else {
