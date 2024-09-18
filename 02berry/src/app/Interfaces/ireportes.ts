@@ -2,15 +2,15 @@ export interface IReportes {
   asignacion_id?: number;
   idNinio?: number;
   idCuidador?: number;
-  fecha_asignacion?: string;
+  Motivo?: string;
+  Fecha_asignacion?: string;
 
-  Nombre: string;
-  Apellido: string;
-  Fecha_nacimiento: string;
+  NombreNinio?: string;
+  Fecha_nacimiento?: string;
   Alergias?: string;
 
   NombreCuidador?: string;
-  Especialidad: string;
+  Especialidad?: string;
   Telefono?: string;
   Email?: string;
 }
