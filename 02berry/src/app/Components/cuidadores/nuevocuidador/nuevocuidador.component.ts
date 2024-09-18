@@ -17,7 +17,7 @@ export class NuevocuidadorComponent implements OnInit {
   idCuidador: number = 0;
   btn_save: string = 'Crear cuidador';
   btn_confirm: string = 'Crear cuidador';
-  mensaje: string = 'Desea crear el cuidador';
+  mensaje: string = 'Desea crear el cuidador ';
   titulo: string = 'Nuevo cuidador';
   frm_cuidador: FormGroup;
 
@@ -42,14 +42,13 @@ export class NuevocuidadorComponent implements OnInit {
         this.titulo = 'Actualizar Cuidador';
         this.btn_save = 'Actualizar cuidador';
         this.btn_confirm = 'Actualizar cuidador!';
-        this.mensaje = 'Desea actualizar el cuidador';
+        this.mensaje = 'Desea actualizar el cuidador ';
 
         this.frm_cuidador.controls['Nombre'].setValue(cuidador.Nombre);
         this.frm_cuidador.controls['Especialidad'].setValue(cuidador.Especialidad);
         this.frm_cuidador.controls['Telefono'].setValue(cuidador.Telefono);
         this.frm_cuidador.controls['Email'].setValue(cuidador.Email);
       });
-      console.log(this.frm_cuidador);
     }
   }
 
@@ -66,7 +65,6 @@ export class NuevocuidadorComponent implements OnInit {
       Telefono: this.frm_cuidador.get('Telefono')?.value,
       Email: this.frm_cuidador.get('Email')?.value
     };
-    console.log(cuidador);
     Swal.fire({
       title: 'Cuidadores',
       text: this.mensaje + this.frm_cuidador.controls['Nombre'].value,
