@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS Asignaciones (
     asignacion_id INT AUTO_INCREMENT PRIMARY KEY,
     idNinio INT,
     idCuidador INT,
-    fecha_asignacion DATE NOT NULL,
+    Motivo VARCHAR(200) NOT NULL,
+    Fecha_asignacion DATE NOT NULL,
     FOREIGN KEY (idNinio) REFERENCES Ninios(idNinio) ON DELETE CASCADE,
     FOREIGN KEY (idCuidador) REFERENCES Cuidadores(idCuidador) ON DELETE CASCADE
 );
