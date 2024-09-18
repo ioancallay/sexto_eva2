@@ -35,8 +35,7 @@ class NiniosModel
             $cadena = "INSERT INTO `Ninios` (`Nombre`, `Apellido`, `Fecha_nacimiento`, `alergias`, `idCuidador`) VALUES ('$Nombre', '$Apellido', '$Fecha_nacimiento', '$alergias', '$idCuidador')";
             if (mysqli_query($con, $cadena)) {
                 $idNinio = $con->insert_id;
-
-                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
+                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, motivo, fecha_asignacion) VALUES ($idNinio, $idCuidador, 'Asignacion inicial', CURDATE())";
                 if (mysqli_query($con, $asignacion)) {
                     return $idNinio;
                 } else {
@@ -61,7 +60,7 @@ class NiniosModel
             $res = mysqli_query($con, $cadenaCuidador);
             $cuidador = mysqli_fetch_assoc($res);
             if ($cuidador['idCuidador'] != $idCuidador) {
-                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
+                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, motivo, fecha_asignacion) VALUES ($idNinio, $idCuidador, 'Cambio de cuidador', CURDATE())";
                 mysqli_query($con, $asignacion);
                 $cuidador['idCuidador'] = $idCuidador;
             } else {
