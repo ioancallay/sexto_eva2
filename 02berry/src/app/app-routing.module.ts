@@ -38,6 +38,10 @@ const routes: Routes = [
         loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
       },
       {
+        path: 'editarcuidador:/cuidador_id',
+        loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
+      },
+      {
         path: 'ninios',
         loadComponent: () => import('./Components/ninios/ninios.component').then((c) => c.NiniosComponent)
       },
