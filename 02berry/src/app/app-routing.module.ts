@@ -30,6 +30,14 @@ const routes: Routes = [
         loadComponent: () => import('./demo/sample-page/sample-page.component')
       },
       {
+        path: 'cuidadores',
+        loadComponent: () => import('./Components/cuidadores/cuidadores.component').then((c) => c.CuidadoresComponent)
+      },
+      {
+        path: 'nuevocuidador',
+        loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
+      },
+      {
         path: 'ninios',
         loadComponent: () => import('./Components/ninios/ninios.component').then((c) => c.NiniosComponent)
       },
@@ -38,12 +46,8 @@ const routes: Routes = [
         loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
       },
       {
-        path: 'cuidadores',
-        loadComponent: () => import('./Components/cuidadores/cuidadores.component').then((c) => c.CuidadoresComponent)
-      },
-      {
-        path: 'nuevocuidador',
-        loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
+        path: 'editarninio/:ninio_id',
+        loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
       }
     ]
   },
