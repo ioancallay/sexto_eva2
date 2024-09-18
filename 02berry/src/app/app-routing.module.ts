@@ -18,18 +18,6 @@ const routes: Routes = [
         loadComponent: () => import('./demo/default/default.component').then((c) => c.DefaultComponent)
       },
       {
-        path: 'typography',
-        loadComponent: () => import('./demo/elements/typography/typography.component')
-      },
-      {
-        path: 'color',
-        loadComponent: () => import('./demo/elements/element-color/element-color.component')
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () => import('./demo/sample-page/sample-page.component')
-      },
-      {
         path: 'cuidadores',
         loadComponent: () => import('./Components/cuidadores/cuidadores.component').then((c) => c.CuidadoresComponent)
       },
