@@ -35,33 +35,32 @@ switch ($_GET['op']) {
         break;
 
     case 'insertar':
-        if (!isset($_POST['nombre'], $_POST['especialidad'], $_POST['telefono'], $_POST['email'])) {
+        if (!isset($_POST['Nombre'], $_POST['Especialidad'], $_POST['Telefono'], $_POST['Email'])) {
             echo json_encode(["error:" => "Missing required parameters."]);
             break;
         }
 
-        $nombre = $_POST['nombre'];
-        $especialidad = $_POST['especialidad'];
-        $telefono = $_POST['telefono'];
-        $email = $_POST['email'];
+        $Nombre = $_POST['Nombre'];
+        $Especialidad = $_POST['Especialidad'];
+        $Telefono = $_POST['Telefono'];
+        $Email = $_POST['Email'];
         $datos = array();
-        $datos = $cuidadores->insertar($nombre, $especialidad, $telefono, $email);
+        $datos = $cuidadores->insertar($Nombre, $Especialidad, $Telefono, $Email);
         echo json_encode($datos);
         break;
 
     case 'actualizar':
-        if (!isset($_POST['idCuidador'], $_POST['nombre'], $_POST['especialidad'], $_POST['telefono'], $_POST['email'], $_POST['idNinio'])) {
+        if (!isset($_POST['idCuidador'], $_POST['Nombre'], $_POST['Especialidad'], $_POST['Telefono'], $_POST['Email'])) {
             echo json_encode(["error:" => "Missing required parameters."]);
             break;
         }
         $idCuidador = $_POST['idCuidador'];
-        $nombre = $_POST['nombre'];
-        $especialidad = $_POST['especialidad'];
-        $telefono = $_POST['telefono'];
-        $email = $_POST['email'];
-        $idNinio = $_POST['idNinio'];
+        $Nombre = $_POST['Nombre'];
+        $Especialidad = $_POST['Especialidad'];
+        $Telefono = $_POST['Telefono'];
+        $Email = $_POST['Email'];
         $datos = array();
-        $datos = $cuidadores->actualizar($idCuidador, $nombre, $especialidad, $telefono, $email, $idNinio);
+        $datos = $cuidadores->actualizar($idCuidador, $Nombre, $Especialidad, $Telefono, $Email);
         echo json_encode($datos);
         break;
 

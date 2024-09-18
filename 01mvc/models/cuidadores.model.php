@@ -6,10 +6,10 @@ class CuidadoresModel
 {
 
     // idCuidador INT AUTO_INCREMENT PRIMARY KEY,
-    // nombre VARCHAR(50) NOT NULL,
-    // especialidad VARCHAR(50) NOT NULL,
-    // telefono VARCHAR(20),
-    // email VARCHAR(100) UNIQUE
+    // Nombre VARCHAR(50) NOT NULL,
+    // Especialidad VARCHAR(50) NOT NULL,
+    // Telefono VARCHAR(20),
+    // Email VARCHAR(100) UNIQUE
 
     public function todos()
     {
@@ -31,12 +31,12 @@ class CuidadoresModel
         return $datos;
     }
 
-    public function insertar($nombre, $especialidad, $telefono, $email)
+    public function insertar($Nombre, $Especialidad, $Telefono, $Email)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO cuidadores (nombre, especialidad, telefono, email) VALUES ('$nombre', '$especialidad', '$telefono', '$email')";
+            $cadena = "INSERT INTO cuidadores (Nombre, Especialidad, Telefono, Email) VALUES ('$Nombre', '$Especialidad', '$Telefono', '$Email')";
             if (mysqli_query($con, $cadena)) {
                 return $con->insert_id;
             } else {
@@ -49,12 +49,12 @@ class CuidadoresModel
         }
     }
 
-    public function actualizar($idCuidador, $nombre, $especialidad, $telefono, $email)
+    public function actualizar($idCuidador, $Nombre, $Especialidad, $Telefono, $Email)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE cuidadores SET nombre='$nombre', especialidad='$especialidad', telefono='$telefono', email='$email' WHERE idCuidador=$idCuidador";
+            $cadena = "UPDATE cuidadores SET Nombre='$Nombre', Especialidad='$Especialidad', Telefono='$Telefono', Email='$Email' WHERE idCuidador=$idCuidador";
             if (mysqli_query($con, $cadena)) {
                 return $con->insert_id;
             } else {

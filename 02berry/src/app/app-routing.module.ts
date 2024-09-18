@@ -38,7 +38,7 @@ const routes: Routes = [
         loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
       },
       {
-        path: 'editarcuidador:/cuidador_id',
+        path: 'editarcuidador/:idCuidador',
         loadComponent: () => import('./Components/cuidadores/nuevocuidador/nuevocuidador.component').then((c) => c.NuevocuidadorComponent)
       },
       {
@@ -50,7 +50,7 @@ const routes: Routes = [
         loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
       },
       {
-        path: 'editarninio/:ninio_id',
+        path: 'editarninio/:idNinio',
         loadComponent: () => import('./Components/ninios/nuevoninio/nuevoninio.component').then((c) => c.NuevoninioComponent)
       }
     ]

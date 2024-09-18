@@ -45,11 +45,11 @@ email -->
                 @for (cuidador of listaCuidadores; track $index) {
                   <tr>
                     <td>{{ $index + 1 }}</td>
-                    <td>{{ cuidador.nombre }}</td>
-                    <td>{{ cuidador.especialidad }}</td>
-                    <td class="text-end">{{ cuidador.telefono }}</td>
+                    <td>{{ cuidador.Nombre }}</td>
+                    <td>{{ cuidador.Especialidad }}</td>
+                    <td class="text-end">{{ cuidador.Telefono }}</td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-outline-warning" [routerLink]="['/editarninio/', cuidador.idCuidador]">
+                      <button type="button" class="btn btn-outline-warning" [routerLink]="['/editarcuidador/', cuidador.idCuidador]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="icon icon-tabler icon-tabler-edit"

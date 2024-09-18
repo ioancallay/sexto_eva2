@@ -10,15 +10,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './nuevoninio.component.scss'
 })
 export class NuevoninioComponent implements OnInit {
-  // }<!-- idNinio
-  // nombre
-  // apellido
-  // fecha_nacimiento
-  // alergias -->
-  // title: string = 'Nuevo Niño';
-  // btn_save: string = 'Guardar';
-  // frm_ninio: FormGroup;
-
   ngOnInit(): void {
     this.frm_ninio = new FormGroup({
       Nombre: new FormControl('', Validators.required),
