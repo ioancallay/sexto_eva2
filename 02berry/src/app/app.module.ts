@@ -37,7 +37,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ConfigurationComponent,
     GuestComponent
   ],
-  // imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule],
   imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [NavigationItem],
   bootstrap: [AppComponent]
