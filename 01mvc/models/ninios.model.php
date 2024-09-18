@@ -21,7 +21,6 @@ class NiniosModel
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
         $cadena = "SELECT * FROM `Ninios` WHERE `idNinio` = $idNinio";
-        // $cadena = "SELECT n.idNinio, n.Nombre, n.Apellido, n.Fecha_nacimiento, c.Nombre as Cuidador, c.idCuidador FROM ninios n JOIN cuidadores c ON n.idCuidador = c.idCuidador WHERE idNinio = $idNinio";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
