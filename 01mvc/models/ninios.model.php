@@ -10,7 +10,7 @@ class NiniosModel
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT * FROM `ninios`";
+        $cadena = "SELECT * FROM `Ninios`";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
@@ -20,25 +20,18 @@ class NiniosModel
     {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT * FROM `ninios` WHERE `idNinio` = $idNinio";
+        $cadena = "SELECT * FROM `Ninios` WHERE `idNinio` = $idNinio";
         $datos = mysqli_query($con, $cadena);
         $con->close();
         return $datos;
     }
-
-
-    // ninio_id INT AUTO_INCREMENT PRIMARY KEY,
-    // nombre VARCHAR(50) NOT NULL,
-    // apellido VARCHAR(50) NOT NULL,
-    // fecha_nacimiento DATE NOT NULL,
-    // alergias TEXT
 
     public function insertar($nombre, $apellido, $fecha_nacimiento, $alergias)
     {
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "INSERT INTO `ninios` (`nombre`, `apellido`, `fecha_nacimiento`, `alergias`) VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$alergias')";
+            $cadena = "INSERT INTO `Ninios` (`nombre`, `apellido`, `fecha_nacimiento`, `alergias`) VALUES ('$nombre', '$apellido', '$fecha_nacimiento', '$alergias')";
             if (mysqli_query($con, $cadena)) {
                 return $con->insert_id;
             } else {
@@ -57,7 +50,7 @@ class NiniosModel
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "UPDATE `ninios` SET `nombre` = '$nombre', `apellido` = '$apellido', `fecha_nacimiento` = '$fecha_nacimiento', `alergias` = '$alergias' WHERE `idNinio` = $idNinio";
+            $cadena = "UPDATE `Ninios` SET `nombre` = '$nombre', `apellido` = '$apellido', `fecha_nacimiento` = '$fecha_nacimiento', `alergias` = '$alergias' WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
                 return true;
             } else {
@@ -75,7 +68,7 @@ class NiniosModel
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
-            $cadena = "DELETE FROM `ninios` WHERE `idNinio` = $idNinio";
+            $cadena = "DELETE FROM `Ninios` WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
                 return true;
             } else {
