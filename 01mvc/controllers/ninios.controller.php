@@ -77,6 +77,20 @@ switch ($_GET['op']) {
         echo json_encode($datos);
         break;
 
+    case 'buscar':
+        if (!isset($_POST['busqueda'])) {
+            echo json_encode(["error" => "Missing 'busqueda' parameter."]);
+        }
+        $busqueda = $_POST['busqueda'];
+        $datos = array();
+        $datos = $ninios->buscar($busqueda);
+        while ($row = mysqli_fetch_assoc($datos)) {
+            $todos[] = $row;
+        }
+        echo json_encode($todos);
+
+        break;
+
     default:
         echo json_encode(["error:" => "Invalid operation."]);
 }

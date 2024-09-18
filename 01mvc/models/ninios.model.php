@@ -57,18 +57,19 @@ class NiniosModel
         try {
             $con = new ClaseConexion();
             $con = $con->ProcedimientoConectar();
+            $cadenaCuidador = "SELECT idCuidador FROM `Ninios` WHERE `idNinio` = $idNinio";
+            $res = mysqli_query($con, $cadenaCuidador);
+            $cuidador = mysqli_fetch_assoc($res);
+            if ($cuidador['idCuidador'] != $idCuidador) {
+                $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
+                mysqli_query($con, $asignacion);
+                $cuidador['idCuidador'] = $idCuidador;
+            } else {
+                echo $con->error;
+            }
+
             $cadena = "UPDATE `Ninios` SET `Nombre` = '$Nombre', `Apellido` = '$Apellido', `Fecha_nacimiento` = '$Fecha_nacimiento', `alergias` = '$alergias', `idCuidador` = '$idCuidador' WHERE `idNinio` = $idNinio";
             if (mysqli_query($con, $cadena)) {
-                // $cadenaCuidador = "SELECT idCuidador FROM `Ninios` WHERE `idNinio` = $idNinio";
-                // $res = mysqli_query($con, $cadenaCuidador);
-                // $cuidador = mysqli_fetch_array($res);
-                // if ($cuidador['idCuidador'] != $idCuidador) {
-                //     $asignacion = "INSERT INTO Asignaciones (idNinio, idCuidador, fecha_asignacion) VALUES ($idNinio, $idCuidador, CURDATE())";
-                //     mysqli_query($con, $asignacion);
-                //     $cuidador['idCuidador'] = $idCuidador;
-                // } else {
-                //     echo "No se ha modificado el cuidador";
-                // }
                 return $idNinio;
             } else {
                 return $con->error;
@@ -96,5 +97,15 @@ class NiniosModel
         } finally {
             $con->close();
         }
+    }
+
+    public function buscar($busqueda)
+    {
+        $con = new ClaseConexion();
+        $con = $con->ProcedimientoConectar();
+        $cadena = "SELECT n.idNinio, n.Nombre, n.Apellido, n.Fecha_nacimiento, c.Nombre as NombreCuidador, c.idCuidador FROM ninios n JOIN cuidadores c ON n.idCuidador = c.idCuidador WHERE n.Nombre LIKE '%$busqueda%' OR n.Apellido LIKE '%$busqueda%' OR n.Fecha_nacimiento LIKE '%$busqueda%' OR c.Nombre LIKE '%$busqueda%'";
+        $datos = mysqli_query($con, $cadena);
+        $con->close();
+        return $datos;
     }
 }
