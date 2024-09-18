@@ -1,6 +1,6 @@
 <?php
 
-class ClaseConectar
+class ClaseConexion
 {
     public $conexion;
     protected $db;
