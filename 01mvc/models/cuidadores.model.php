@@ -5,12 +5,6 @@ require_once '../config/conexion.php';
 class CuidadoresModel
 {
 
-    // idCuidador INT AUTO_INCREMENT PRIMARY KEY,
-    // Nombre VARCHAR(50) NOT NULL,
-    // Especialidad VARCHAR(50) NOT NULL,
-    // Telefono VARCHAR(20),
-    // Email VARCHAR(100) UNIQUE
-
     public function todos()
     {
         $con = new ClaseConexion();
