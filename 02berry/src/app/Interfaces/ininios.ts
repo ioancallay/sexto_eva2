@@ -7,5 +7,4 @@ export interface INinios {
   idCuidador?: number;
 
   NombreCuidador?: string;
-  ApellidoCuidador?: string;
 }
